@@ -152,4 +152,14 @@ class Matrix {
     }
     return tmp;
   }
+
+  mutate(mr){
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        if(Math.random() < mr){
+          this.mat[i][j] += randomGaussian(0,0.1);
+        }
+      }
+    }
+  }
 }

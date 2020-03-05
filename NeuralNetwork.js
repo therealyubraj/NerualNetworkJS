@@ -90,4 +90,21 @@ class NN {
       this.biases[i].matrixSum(gradients[i]);
     }
   }
+
+  mutateNN(mr){
+    for(let i = 0;i < this.weights.length;i++){
+      this.weights[i].mutate(mr);
+      this.biases[i].mutate(mr);
+    }
+  }
+
+  static copyNN(toCopy){
+    let tmp = new NN();
+    tmp.total = toCopy.total;
+    for(let i = 0;i < toCopy.weights.length;i++){
+      tmp.weights[i] = Matrix.copyMatrix(toCopy.weights[i]);
+      tmp.biases[i] = Matrix.copyMatrix(toCopy.biases[i]);
+    }
+    return tmp;
+  }
 }
