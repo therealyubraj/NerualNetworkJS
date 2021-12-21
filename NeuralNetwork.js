@@ -51,6 +51,8 @@ class NN {
       weightedSums[i] = Matrix.matrixMult(this.weights[i - 1], weightedSums[i - 1]);
       weightedSums[i] = Matrix.matrixSum(weightedSums[i], this.biases[i - 1]);
       weightedSums[i] = Matrix.matrixMap(weightedSums[i], sigmoid);
+      //add normalization here
+      //batch normalization with two trainable variables
     }
 
     let output = Matrix.copyMatrix(weightedSums[this.total - 1]);
