@@ -66,6 +66,9 @@ class NN {
 
     let errors = [];
 
+    //better loss function than target - output
+    //cross entropy or square loss function.
+    //use softmax for loss function 
     errors[this.total - 2] = Matrix.matrixSub(target, output);
 
     for(let i = this.total - 3;i >= 0;i--){
@@ -81,6 +84,9 @@ class NN {
 
     let gradients = [];
     let weights_deltas = [];
+    
+    //momentum?
+    //changing lr according to the change in lr?
 
     for(let i = 0;i < this.total - 1;i++){
       gradients[i] = Matrix.hadamardMult(DSigWeightedSums[i+1], errors[i]);
@@ -96,6 +102,16 @@ class NN {
       this.weights[i].matrixSum(weights_deltas[i]);
       this.biases[i].matrixSum(gradients[i]);
     }
+    
+    //adam
+    //rmsprop, adagrad, making lr for every weight rather than one general for everything
+    //kingma dp, a method for stochastic optimization similar to momentum
+    //bias correction
+    
+    //regularization
+    //l2 regularization
+    //dropout
+    
   }
 
   mutateNN(mr){
