@@ -16,10 +16,15 @@ class NN {
       this.biases[i] = new Matrix(hiddens, 1);
     }
 
+    //randomization not good :(
     for (let i = 0; i < this.total-1; i++) {
       this.weights[i].randomize();
       this.biases[i].randomize();
     }
+    
+    //glorot and bengio
+    //make initialization better
+    
   }
 
   predict(ip) {
